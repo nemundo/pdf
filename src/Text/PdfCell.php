@@ -7,6 +7,8 @@ use Nemundo\Pdf\Base\AbstractPdfObject;
 class PdfCell extends AbstractPdfObject
 {
 
+    use FontStyleTrait;
+
     public $text;
 
     public $width = 100;
@@ -32,6 +34,8 @@ class PdfCell extends AbstractPdfObject
     {
 
         //$fpdf->Ln(10);
+
+        $this->loadStyle($fpdf);
 
         $fpdf->Cell($this->width,$this->height, $this->text, $this->border);
 
