@@ -4,6 +4,7 @@ namespace Nemundo\Pdf\Document;
 
 use Nemundo\Core\Base\AbstractDocument;
 use Nemundo\Core\Debug\Debug;
+use Nemundo\Core\Image\Converter\ImagickImageConverter;
 use Nemundo\Pdf\Base\AbstractPdfObject;
 
 abstract class AbstractPdfDocument extends AbstractDocument
@@ -18,7 +19,6 @@ abstract class AbstractPdfDocument extends AbstractDocument
     public $customSizeWidth;
 
     public $customSizeHeight;
-
 
     /**
      * @var AbstractPdfObject[]
@@ -60,7 +60,8 @@ abstract class AbstractPdfDocument extends AbstractDocument
 
         require(__DIR__ . '/../../lib/fpdf/fpdf.php');
 
-        $fpdf = new \FPDF();
+
+        $fpdf = new \FPDF('P','pt');
 
         if ($this->pageSize === PageSize::CUSTOM) {
             $fpdf->AddPage($this->pageOrientation, [$this->customSizeWidth, $this->customSizeHeight]);
@@ -101,6 +102,9 @@ abstract class AbstractPdfDocument extends AbstractDocument
         $im = new \Imagick($this->filename);
         $im->setImageFormat($fileExtension);
         $im->writeImage($filename);
+
+
+
 
     }
 

@@ -3,6 +3,7 @@
 namespace Nemundo\Pdf\Text;
 
 use Nemundo\Pdf\Base\AbstractPdfObject;
+use Nemundo\Pdf\Document\AbstractPdfDocument;
 
 class PdfCell extends AbstractPdfObject
 {
@@ -17,33 +18,22 @@ class PdfCell extends AbstractPdfObject
 
     public $border = 1;
 
-    //private $textList = [];
 
-
-    /*public function addText($text)
+    public function __construct(AbstractPdfDocument $pdfDocument)
     {
 
-        $this->textList[] = $text;
-        return $this;
+        parent::__construct($pdfDocument);
+        $this->loadDefaultStyle();
 
-
-    }*/
+    }
 
 
     public function renderPdf(\FPDF $fpdf)
     {
 
-        //$fpdf->Ln(10);
-
         $this->loadStyle($fpdf);
-
-        $fpdf->Cell($this->width,$this->height, $this->text, $this->border);
-
-        /*foreach ($this->textList as $text) {
-            $fpdf->Cell(40, 10, $text, $this->border);
-        }*/
+        $fpdf->Cell($this->width, $this->height, $this->text, $this->border);
 
     }
-
 
 }

@@ -2,12 +2,14 @@
 
 namespace Nemundo\Pdf\Text;
 
+use Nemundo\Pdf\Config\PdfConfig;
+
 trait FontStyleTrait
 {
 
-    public $font = PdfFont::ARIAL;
+    public $font;  // = PdfFont::ARIAL;
 
-    public $fontSize = 12;
+    public $fontSize;  // = 12;
 
     public $bold = false;
 
@@ -16,8 +18,17 @@ trait FontStyleTrait
     public $underline = false;
 
 
+    private function loadDefaultStyle()
+    {
 
-    private function loadStyle(\FPDF $fpdf) {
+        $this->font = PdfConfig::$defaultFont;
+        $this->fontSize = PdfConfig::$defaultFontSize;
+
+    }
+
+
+    private function loadStyle(\FPDF $fpdf)
+    {
 
         $style = '';
 
