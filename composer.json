@@ -12,6 +12,7 @@
             "email": "urs.lang@nemundo.com"
         }
     ],
+    "minimum-stability": "dev",
     "require": {
         "nemundo/framework": "*"
     }

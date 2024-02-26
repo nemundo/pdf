@@ -46,6 +46,8 @@ trait FontStyleTrait
 
         $fpdf->SetFont($this->font, $style, $this->fontSize);
 
+        //ISO-8859-1
+
 
     }
 

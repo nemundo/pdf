@@ -30,7 +30,10 @@ class PdfText extends AbstractPdfObject
     {
 
         $this->loadStyle($fpdf);
-        $fpdf->Write($this->height, $this->text);
+
+        $textNew = iconv('utf-8', 'ISO-8859-2', $this->text);
+
+        $fpdf->Write($this->height, $textNew);
 
         //$fpdf->Text($this->x, $this->y, $this->text);
 

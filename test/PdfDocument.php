@@ -1,6 +1,8 @@
 <?php
 
-require  "config.php";
+require __DIR__ . "/../config.php";
+
+(new \Nemundo\Project\Path\TmpPath())->createPath();
 
 
 $filename = (new \Nemundo\Project\Path\TmpPath())
@@ -48,8 +50,8 @@ $line->x2 = 300;
 $line->y2 = 300;*/
 
 
-$img = new \Nemundo\Pdf\Image\PdfImage($pdf);
-$img->imageFilename='D:\Tmp_Git\nemundo_com\web\data\event_event\image_image_cropping\325ed34b-b2bb-429b-a807-d07680c67d01.jpg';
+//$img = new \Nemundo\Pdf\Image\PdfImage($pdf);
+//$img->imageFilename='D:\Tmp_Git\nemundo_com\web\data\event_event\image_image_cropping\325ed34b-b2bb-429b-a807-d07680c67d01.jpg';
 //$img->imageFilename='D:\Tmp_Git\nemundo_com\web\data\event_event\image_image_cropping\325ed34b-b2bb-429b-a807-d07680c67d01.png';
 //$img->imageFilename =  'D:\Tmp_Git\nemundo_com\tmp\7cbb2514-5a1b-44dc-9a16-7252839df70e.png';  // 'D:\Test_Data\Image\rigi.png';
 
@@ -102,9 +104,9 @@ $cell->text = '';*/
 
 
 
-//$pdf->writeFile();
+$pdf->exportPdf();
 
-$pdf->exportJpg($imgFilename);
+//$pdf->exportJpg($imgFilename);
 
 
 
