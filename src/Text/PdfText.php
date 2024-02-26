@@ -12,11 +12,7 @@ class PdfText extends AbstractPdfObject
 
     public $text;
 
-    /*public $x = 0;
-
-    public $y = 0;*/
-
-    public $height = 0;
+    public $height = 10;
 
     public function __construct(AbstractPdfDocument $pdfDocument)
     {
@@ -31,14 +27,9 @@ class PdfText extends AbstractPdfObject
 
         $this->loadStyle($fpdf);
 
-        $textNew = iconv('utf-8', 'ISO-8859-2', $this->text);
-
-        $fpdf->Write($this->height, $textNew);
-
-        //$fpdf->Text($this->x, $this->y, $this->text);
-
+        $text  = mb_convert_encoding($this->text,  'ISO-8859-2','UTF-8');
+        $fpdf->Write($this->height, $text);
 
     }
-
 
 }

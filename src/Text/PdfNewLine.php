@@ -7,7 +7,7 @@ use Nemundo\Pdf\Base\AbstractPdfObject;
 class PdfNewLine extends AbstractPdfObject
 {
 
-    public $height= 10;
+    public $height = 10;
 
     public function renderPdf(\FPDF $fpdf)
     {

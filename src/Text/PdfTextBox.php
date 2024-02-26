@@ -16,8 +16,6 @@ class PdfTextBox extends AbstractPdfObject
 
     public $y = 0;
 
-    //public $height = 0;
-
     public function __construct(AbstractPdfDocument $pdfDocument)
     {
 
@@ -29,15 +27,11 @@ class PdfTextBox extends AbstractPdfObject
     public function renderPdf(\FPDF $fpdf)
     {
 
-
         $this->loadStyle($fpdf);
 
-        //$fpdf->Write($this->height, $this->text);
-
-        $fpdf->Text($this->x, $this->y, $this->text);
-
+        $text  = mb_convert_encoding($this->text,  'ISO-8859-2','UTF-8');
+        $fpdf->Text($this->x, $this->y, $text);
 
     }
-
 
 }

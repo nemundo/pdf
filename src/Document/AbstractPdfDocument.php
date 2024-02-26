@@ -4,9 +4,6 @@ namespace Nemundo\Pdf\Document;
 
 
 use Nemundo\Core\Base\AbstractBase;
-use Nemundo\Core\Base\Document\AbstractDocument;
-use Nemundo\Core\Debug\Debug;
-use Nemundo\Core\Image\Converter\ImagickImageConverter;
 use Nemundo\Pdf\Base\AbstractPdfObject;
 
 abstract class AbstractPdfDocument extends AbstractBase  // AbstractDocument
@@ -30,11 +27,8 @@ abstract class AbstractPdfDocument extends AbstractBase  // AbstractDocument
 
     public function __construct()
     {
-    //    parent::__construct(null);
+        //    parent::__construct(null);
     }
-
-
-
 
 
     public function addObject(AbstractPdfObject $pdfObject)
@@ -52,17 +46,13 @@ abstract class AbstractPdfDocument extends AbstractBase  // AbstractDocument
     }
 
 
-    private function load()
+    private function load($destination)
     {
 
         require(__DIR__ . '/../../lib/fpdf/fpdf.php');
-        //require(__DIR__ . '/../../lib/fpdf/makefont/makefont.php');
-
-        //MakeFont('C:\\Windows\\Fonts\\comic.ttf','ISO-8859-1');
 
 
-
-        $fpdf = new \FPDF('P','pt');
+        $fpdf = new \FPDF('P', 'pt');
 
         if ($this->pageSize === PageSize::CUSTOM) {
             $fpdf->AddPage($this->pageOrientation, [$this->customSizeWidth, $this->customSizeHeight]);
@@ -74,7 +64,34 @@ abstract class AbstractPdfDocument extends AbstractBase  // AbstractDocument
             $pdfObject->renderPdf($fpdf);
         }
 
-        $fpdf->Output('F', $this->filename);
+        $fpdf->Output($destination, $this->filename);
+
+    }
+
+
+    public function sendToBrowser()
+    {
+
+        $this->load('I');
+        return $this;
+
+    }
+
+
+    public function forceToDownload()
+    {
+
+        $this->load('F');
+        return $this;
+
+    }
+
+
+    public function saveFile()
+    {
+
+        $this->load('F');
+        return $this;
 
     }
 
@@ -84,12 +101,6 @@ abstract class AbstractPdfDocument extends AbstractBase  // AbstractDocument
 
         $this->exportImage($imageFilename, 'jpg');
         return $this;
-
-    }
-
-    public function exportPdf() {
-
-        $this->load();
 
     }
 
@@ -109,8 +120,6 @@ abstract class AbstractPdfDocument extends AbstractBase  // AbstractDocument
         $im = new \Imagick($this->filename);
         $im->setImageFormat($fileExtension);
         $im->writeImage($filename);
-
-
 
 
     }
