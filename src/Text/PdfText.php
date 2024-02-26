@@ -27,9 +27,19 @@ class PdfText extends AbstractPdfObject
 
         $this->loadStyle($fpdf);
 
-        $text  = mb_convert_encoding($this->text,  'ISO-8859-2','UTF-8');
-        $fpdf->Write($this->height, $text);
+        //$text = mb_convert_encoding($this->text, 'ISO-8859-2', 'UTF-8');
+        $fpdf->Write($this->height, $this->getText());
 
     }
+
+
+    protected function getText()
+    {
+
+        $text = mb_convert_encoding($this->text, 'ISO-8859-2', 'UTF-8');
+        return $text;
+
+    }
+
 
 }

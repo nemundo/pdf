@@ -15,6 +15,13 @@ abstract class AbstractPdfDocument extends AbstractBase  // AbstractDocument
 
     public $pageSize = PageSize::A4;
 
+    public $margin;
+
+    public $documentTitle;
+
+    public $author;
+
+
     public $customSizeWidth;
 
     public $customSizeHeight;
@@ -51,8 +58,21 @@ abstract class AbstractPdfDocument extends AbstractBase  // AbstractDocument
 
         require(__DIR__ . '/../../lib/fpdf/fpdf.php');
 
-
         $fpdf = new \FPDF('P', 'pt');
+
+        if ($this->documentTitle !==null) {
+            $fpdf->SetSubject($this->documentTitle,true);
+        }
+
+        if ($this->author !==null) {
+            $fpdf->SetSubject($this->author,true);
+        }
+
+        if ($this->margin !== null) {
+            $fpdf->SetTopMargin($this->margin);
+            $fpdf->SetLeftMargin($this->margin);
+            $fpdf->SetRightMargin($this->margin);
+        }
 
         if ($this->pageSize === PageSize::CUSTOM) {
             $fpdf->AddPage($this->pageOrientation, [$this->customSizeWidth, $this->customSizeHeight]);

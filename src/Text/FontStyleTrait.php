@@ -7,9 +7,9 @@ use Nemundo\Pdf\Config\PdfConfig;
 trait FontStyleTrait
 {
 
-    public $font;  // = PdfFont::ARIAL;
+    public $font;
 
-    public $fontSize;  // = 12;
+    public $fontSize;
 
     public $bold = false;
 
@@ -18,7 +18,7 @@ trait FontStyleTrait
     public $underline = false;
 
 
-    private function loadDefaultStyle()
+    protected function loadDefaultStyle()
     {
 
         $this->font = PdfConfig::$defaultFont;
@@ -27,7 +27,7 @@ trait FontStyleTrait
     }
 
 
-    private function loadStyle(\FPDF $fpdf)
+    protected function loadStyle(\FPDF $fpdf)
     {
 
         $style = '';
@@ -46,10 +46,6 @@ trait FontStyleTrait
 
         $fpdf->SetFont($this->font, $style, $this->fontSize);
 
-        //ISO-8859-1
-
-
     }
-
 
 }
