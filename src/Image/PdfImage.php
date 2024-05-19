@@ -9,9 +9,9 @@ class PdfImage extends AbstractPdfObject
 
     public $imageFilename;
 
-    public $x = 0;
+    public $x;
 
-    public $y = 0;
+    public $y;
 
     public function renderPdf(\FPDF $fpdf)
     {

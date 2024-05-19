@@ -10,19 +10,15 @@ $filename = (new \Nemundo\Project\Path\TmpPath())
     ->getFullFilename();
 
 
-
-
-
 $pdf = new \Nemundo\Pdf\Document\PdfDocument();
 $pdf->filename = $filename;
 
 
-$pdf->pageSize= \Nemundo\Pdf\Document\PageSize::A3;
-$pdf->pageOrientation= \Nemundo\Pdf\Document\PageOrientation::PORTRAIT;
+$pdf->pageSize = \Nemundo\Pdf\Document\PageSize::A3;
+$pdf->pageOrientation = \Nemundo\Pdf\Document\PageOrientation::PORTRAIT;
 
 \Nemundo\Pdf\Config\PdfConfig::$defaultFont = \Nemundo\Pdf\Text\PdfFont::COURIER;
-\Nemundo\Pdf\Config\PdfConfig::$defaultFontSize= 14;
-
+\Nemundo\Pdf\Config\PdfConfig::$defaultFontSize = 14;
 
 
 /*
@@ -48,7 +44,6 @@ $line->y2 = 300;*/
 //$img->imageFilename =  'D:\Tmp_Git\nemundo_com\tmp\7cbb2514-5a1b-44dc-9a16-7252839df70e.png';  // 'D:\Test_Data\Image\rigi.png';
 
 
-
 /*$text = new \Nemundo\Pdf\Text\PdfText($pdf);
 $text->text = 'Hello World';
 $text->font= \Nemundo\Pdf\Text\PdfFont::TIMES;
@@ -63,12 +58,11 @@ $text->text = 'ää';
 
 
 $newLine = new \Nemundo\Pdf\Text\PdfNewLine($pdf);
-$newLine->height= 100;
+$newLine->height = 100;
 
 
+$pdf->saveFile();
 
-
-$pdf->exportPdf();
 
 //$pdf->exportJpg($imgFilename);
 
