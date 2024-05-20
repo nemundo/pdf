@@ -2,14 +2,15 @@
 
 namespace Nemundo\Pdf\Text;
 
-class PdfCell extends AbstractPdfCell
+class PdfMultiCell extends AbstractPdfCell
 {
+
 
     public function renderPdf(\FPDF $fpdf)
     {
 
         $this->loadStyle($fpdf);
-        $fpdf->Cell($this->width, $this->height, $this->text, $this->border);
+        $fpdf->MultiCell($this->width, $this->height, $this->text, $this->border);
 
     }
 

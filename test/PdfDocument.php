@@ -104,7 +104,7 @@ $cell->text = '';*/
 
 
 
-$pdf->exportPdf();
+$pdf->saveFile();
 
 //$pdf->exportJpg($imgFilename);
 
