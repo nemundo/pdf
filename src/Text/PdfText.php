@@ -9,8 +9,8 @@ class PdfText extends AbstractPdfObject
 {
 
     use FontStyleTrait;
-
-    public $text;
+use TextTrait;
+    //public $text;
 
     public $height = 10;
 
@@ -33,13 +33,13 @@ class PdfText extends AbstractPdfObject
     }
 
 
-    protected function getText()
+    /*protected function getText()
     {
 
         $text = mb_convert_encoding($this->text, 'ISO-8859-2', 'UTF-8');
         return $text;
 
-    }
+    }*/
 
 
 }

@@ -14,18 +14,21 @@ $pdf->filename = $filename;
 
 
 $cell = new \Nemundo\Pdf\Text\PdfCell($pdf);
-$cell->text = '-';
+$cell->text = '-äää';
 $cell->width=50;
 
 $cell = new \Nemundo\Pdf\Text\PdfMultiCell($pdf);
 
 
-$cell->text = 'asdf asdf asfd asdf asdfas asdf asdf asfd asdf asdfas asdf asdf asfd asdf asdfas asdf asdf asfd asdf asdfas asdf asdf asfd asdf asdfas asdf asdf asfd asdf asdfas asdf asdf asfd asdf asdfas asdf asdf asfd asdf asdfas asdf asdf asfd asdf asdfas asdf asdf asfd asdf asdfas ';
+$cell->text = 'ääääasdf asdf asfd asdf asdfas asdf asdf asfd asdf asdfas asdf asdf asfd asdf asdfas asdf asdf asfd asdf asdfas asdf asdf asfd asdf asdfas asdf asdf asfd asdf asdfas asdf asdf asfd asdf asdfas asdf asdf asfd asdf asdfas asdf asdf asfd asdf asdfas asdf asdf asfd asdf asdfas ';
 
 
+new \Nemundo\Pdf\Text\PdfNewLine($pdf);
 
 
-
+$text = new \Nemundo\Pdf\Text\PdfText($pdf);
+$text->height = 10;
+$text->text = 'ää';
 
 
 

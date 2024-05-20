@@ -9,7 +9,7 @@ class PdfCell extends AbstractPdfCell
     {
 
         $this->loadStyle($fpdf);
-        $fpdf->Cell($this->width, $this->height, $this->text, $this->border);
+        $fpdf->Cell($this->width, $this->height, $this->getText(), $this->border);
 
     }
 

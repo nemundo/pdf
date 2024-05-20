@@ -10,7 +10,7 @@ class PdfMultiCell extends AbstractPdfCell
     {
 
         $this->loadStyle($fpdf);
-        $fpdf->MultiCell($this->width, $this->height, $this->text, $this->border);
+        $fpdf->MultiCell($this->width, $this->height, $this->getText(), $this->border);
 
     }
 
