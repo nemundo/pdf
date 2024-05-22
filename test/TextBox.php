@@ -26,22 +26,26 @@ $pdf->pageOrientation = \Nemundo\Pdf\Document\PageOrientation::PORTRAIT;
 /*
 $box = new \Nemundo\Pdf\Text\PdfTextBox($pdf);
 $box->x = 125;
-$box->y=60;
+$box->y=10;
+//$box->y=60;
 $box->text = "Line1\nLine2\nLine3";
 */
 
+
+
 $box = new \Nemundo\Pdf\Text\PdfMultiCell($pdf);
 $box->x = 125;
-$box->y = 60;
+//$box->y = 60;
 $box->height = 10;
 $box->width = 50;
 $box->text = "Line1\nLine2\nLine3";
 
+/*
 $img = new \Nemundo\Pdf\Image\PdfImage($pdf);
 $img->imageFilename = 'C:\test\brief\logo_quer.png';
 $img->x = 0;
 $img->y = 0;
-$img->width= 20;
+$img->width= 20;*/
 
 
 

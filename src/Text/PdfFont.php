@@ -9,7 +9,7 @@ class PdfFont
 
     const COURIER = 'Courier';
 
-    const HELVETICAT = 'Helvetica';
+    const HELVETICA = 'Helvetica';
 
     const TIMES = 'Times';
 

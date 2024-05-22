@@ -9,8 +9,7 @@ class PdfText extends AbstractPdfObject
 {
 
     use FontStyleTrait;
-use TextTrait;
-    //public $text;
+    use TextTrait;
 
     public $height = 10;
 
@@ -26,20 +25,8 @@ use TextTrait;
     {
 
         $this->loadStyle($fpdf);
-
-        //$text = mb_convert_encoding($this->text, 'ISO-8859-2', 'UTF-8');
         $fpdf->Write($this->height, $this->getText());
 
     }
-
-
-    /*protected function getText()
-    {
-
-        $text = mb_convert_encoding($this->text, 'ISO-8859-2', 'UTF-8');
-        return $text;
-
-    }*/
-
 
 }
