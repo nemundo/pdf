@@ -29,8 +29,6 @@ class PdfTextBox extends AbstractPdfObject
     {
 
         $this->loadStyle($fpdf);
-
-        //$text  = mb_convert_encoding($this->text,  'ISO-8859-2','UTF-8');
         $fpdf->Text($this->x, $this->y, $this->getText());
 
     }

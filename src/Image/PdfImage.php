@@ -13,10 +13,14 @@ class PdfImage extends AbstractPdfObject
 
     public $y;
 
+    public $width;
+
+    public $height;
+
     public function renderPdf(\FPDF $fpdf)
     {
 
-        $fpdf->Image($this->imageFilename, $this->x, $this->y);
+        $fpdf->Image($this->imageFilename, $this->x, $this->y, $this->width, $this->height);
 
     }
 

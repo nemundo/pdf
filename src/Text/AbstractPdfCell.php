@@ -11,8 +11,6 @@ abstract class AbstractPdfCell extends AbstractPdfObject
     use FontStyleTrait;
     use TextTrait;
 
-    //public $text;
-
     public $width = 0;
 
     public $height = 20;

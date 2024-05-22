@@ -5,8 +5,9 @@ namespace Nemundo\Pdf\Document;
 
 use Nemundo\Core\Base\AbstractBase;
 use Nemundo\Pdf\Base\AbstractPdfObject;
+use Nemundo\Pdf\Unit\PdfUnit;
 
-abstract class AbstractPdfDocument extends AbstractBase  // AbstractDocument
+abstract class AbstractPdfDocument extends AbstractBase
 {
 
     public $filename;
@@ -14,6 +15,8 @@ abstract class AbstractPdfDocument extends AbstractBase  // AbstractDocument
     public $pageOrientation = PageOrientation::PORTRAIT;
 
     public $pageSize = PageSize::A4;
+
+    public $unit = PdfUnit::POINT;
 
     public $margin;
 
@@ -32,12 +35,6 @@ abstract class AbstractPdfDocument extends AbstractBase  // AbstractDocument
     private $pdfObjectList = [];
 
 
-    public function __construct()
-    {
-        //    parent::__construct(null);
-    }
-
-
     public function addObject(AbstractPdfObject $pdfObject)
     {
 
@@ -47,18 +44,13 @@ abstract class AbstractPdfDocument extends AbstractBase  // AbstractDocument
     }
 
 
-    public function render()
-    {
-        parent::render();
-    }
-
-
     private function load($destination)
     {
 
         require(__DIR__ . '/../../lib/fpdf/fpdf.php');
 
-        $fpdf = new \FPDF('P', 'pt');
+        //$fpdf = new \FPDF('P', 'pt');
+        $fpdf = new \FPDF($this->pageOrientation, $this->unit);
 
         if ($this->documentTitle !==null) {
             $fpdf->SetSubject($this->documentTitle,true);
@@ -128,7 +120,7 @@ abstract class AbstractPdfDocument extends AbstractBase  // AbstractDocument
     public function exportPng($imageFilename)
     {
 
-        $this->exportImage($imageFilename, 'jpg');
+        $this->exportImage($imageFilename, 'png');
         return $this;
 
     }
