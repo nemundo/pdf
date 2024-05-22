@@ -9,16 +9,20 @@ trait PositionTrait
 
     public $y;
 
-    protected function loadPosition(\FPDF $fpdf) {
+    protected function loadPosition(\FPDF $fpdf)
+    {
 
-        if ($this->x !== null) {
+        if ($this->x !== null && $this->y == null) {
             $fpdf->setX($this->x);
         }
-        if ($this->y !== null) {
+
+        if ($this->y !== null && $this->x == null) {
             $fpdf->setY($this->y);
-            //$fpdf->setXY($this->x, $this->y);
         }
 
+        if ($this->y !== null && $this->x !== null) {
+            $fpdf->setXY($this->x, $this->y);
+        }
 
     }
 
