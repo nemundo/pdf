@@ -34,11 +34,11 @@ $box->text = "Line1\nLine2\nLine3";
 
 
 $box = new \Nemundo\Pdf\Text\PdfMultiCell($pdf);
-$box->x = 125;
-//$box->y = 60;
+$box->x = 0;
+$box->y = 0;
 $box->height = 10;
 $box->width = 50;
-$box->text = "Line1\nLine2\nLine3";
+$box->text = "–Line1\nLine2\nLine3";
 
 /*
 $img = new \Nemundo\Pdf\Image\PdfImage($pdf);
