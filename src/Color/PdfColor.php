@@ -1,1 +1,1 @@
-<?phpnamespace Nemundo\Pdf\Color;use Nemundo\Core\Base\AbstractBase;class PdfColor extends AbstractBase{    public $r = 0;    public $g = 0;    public $b = 0;}
+<?phpnamespace Nemundo\Pdf\Color;use Nemundo\Core\Base\AbstractBase;class PdfColor extends AbstractBase{    public $r = 0;    public $g = 0;    public $b = 0;}

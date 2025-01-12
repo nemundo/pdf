@@ -14,14 +14,8 @@ $pdf->filename = $filename;
 
 
 $cell = new \Nemundo\Pdf\Text\PdfMultiCell($pdf);
-$cell->border = 1;
-$cell->width = 100;
 $cell->text = 'One';
 
-$cell = new \Nemundo\Pdf\Text\PdfMultiCell($pdf);
-$cell->border = 1;
-$cell->width = 100;
-$cell->text = 'Two';
 
 
 $pdf->saveFile();

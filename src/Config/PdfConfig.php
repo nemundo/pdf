@@ -11,5 +11,4 @@ class PdfConfig
 
     public static $defaultFontSize = 12;
 
-
 }

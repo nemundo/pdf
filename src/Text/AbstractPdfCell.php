@@ -15,7 +15,7 @@ abstract class AbstractPdfCell extends AbstractPdfObject
 
     public $height = 20;
 
-    public $border = 1;
+    public $border = 0;
 
 
     public function __construct(AbstractPdfDocument $pdfDocument)

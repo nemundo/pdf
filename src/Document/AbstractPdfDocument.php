@@ -2,7 +2,6 @@
 
 namespace Nemundo\Pdf\Document;
 
-
 use Nemundo\Core\Base\AbstractBase;
 use Nemundo\Pdf\Base\AbstractPdfObject;
 use Nemundo\Pdf\Unit\PdfUnit;
@@ -35,6 +34,20 @@ abstract class AbstractPdfDocument extends AbstractBase
     private $pdfObjectList = [];
 
 
+    public function __construct()
+    {
+
+        $this->loadDocument();
+
+    }
+
+
+    protected function loadDocument()
+    {
+
+    }
+
+
     public function addObject(AbstractPdfObject $pdfObject)
     {
 
@@ -49,7 +62,6 @@ abstract class AbstractPdfDocument extends AbstractBase
 
         require(__DIR__ . '/../../lib/fpdf/fpdf.php');
 
-        //$fpdf = new \FPDF('P', 'pt');
         $fpdf = new \FPDF($this->pageOrientation, $this->unit);
 
         if ($this->documentTitle !==null) {
