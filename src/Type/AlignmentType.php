@@ -13,6 +13,6 @@ class AlignmentType extends AbstractBase
 
     const RIGHT = 'R';
 
-    const CENTEr = 'C';
+    const CENTER = 'C';
 
 }

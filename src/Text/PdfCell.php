@@ -14,8 +14,7 @@ class PdfCell extends AbstractPdfCell
         $this->loadStyle($fpdf);
         $this->loadPosition($fpdf);
 
-
-        $fpdf->Cell($this->width, $this->height, $this->getText(), $this->border);
+        $fpdf->Cell($this->width, $this->height, $this->getText(), $this->border, 0, $this->alignment);
 
     }
 
