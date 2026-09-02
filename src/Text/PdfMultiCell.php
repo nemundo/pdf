@@ -14,6 +14,8 @@ class PdfMultiCell extends AbstractPdfCell
         $this->loadPosition($fpdf);
         $fpdf->MultiCell($this->width, $this->height, $this->getText(), $this->border);
 
+        $fpdf->Cell($this->width, $this->height, $this->getText(), $this->border,0, $this->alignment);
+
     }
 
 }

@@ -3,6 +3,7 @@
 namespace Nemundo\Pdf\Text;
 
 use Nemundo\Pdf\Config\PdfConfig;
+use Nemundo\Pdf\Type\AlignmentType;
 
 trait FontStyleTrait
 {
@@ -16,6 +17,8 @@ trait FontStyleTrait
     public $italic = false;
 
     public $underline = false;
+
+    public $alignment=AlignmentType::LEFT;
 
 
     protected function loadDefaultStyle()
