@@ -13,7 +13,7 @@ class PdfText extends AbstractPdfObject
 
     public $height = 10;
 
-    public function __construct(AbstractPdfDocument $pdfDocument = null)
+    public function __construct(?AbstractPdfDocument $pdfDocument = null)
     {
 
         parent::__construct($pdfDocument);

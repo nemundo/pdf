@@ -11,7 +11,7 @@ abstract class AbstractPdfObject extends AbstractBase
     abstract public function renderPdf(\FPDF $fpdf);
 
 
-    public function __construct(AbstractPdfDocument $pdfDocument = null)
+    public function __construct(?AbstractPdfDocument $pdfDocument = null)
     {
 
         if ($pdfDocument !== null) {

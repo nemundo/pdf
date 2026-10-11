@@ -17,7 +17,7 @@ class PdfTextBox extends AbstractPdfObject
 
     public $y = 0;
 
-    public function __construct(AbstractPdfDocument $pdfDocument = null)
+    public function __construct(?AbstractPdfDocument $pdfDocument = null)
     {
 
         parent::__construct($pdfDocument);
